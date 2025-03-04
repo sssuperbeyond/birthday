@@ -3,231 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>生日快乐，我的挚爱！</title>
+    <title>生日快乐</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap");
-
-      .font-chinese {
-        font-family: "Noto Serif SC", serif;
-      }
-
-      .font-title {
-        font-family: "Ma Shan Zheng", cursive;
-      }
-
-      .heart {
-        animation: heartbeat 1.5s infinite;
-      }
-
-      @keyframes heartbeat {
-        0% {
-          transform: scale(1);
-        }
-        25% {
-          transform: scale(1.1);
-        }
-        50% {
-          transform: scale(1);
-        }
-        75% {
-          transform: scale(1.1);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-
-      .floating {
-        animation: float 3s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-        100% {
-          transform: translateY(0px);
-        }
-      }
-
-      .firework {
-        position: absolute;
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8);
-        animation: firework-animation 2s ease-out;
-        animation-fill-mode: forwards;
-      }
-
-      @keyframes firework-animation {
-        0% {
-          transform: translate(0, 0);
-          opacity: 1;
-          width: 5px;
-          height: 5px;
-        }
-        50% {
-          opacity: 1;
-        }
-        100% {
-          transform: translate(var(--dx), var(--dy));
-          opacity: 0;
-          width: 0px;
-          height: 0px;
-        }
-      }
-
-      .parallax-bg {
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-
-      /* 新增：淡入效果类 */
-      .fade-in-section {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      }
-
-      .fade-in-section.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* 音乐控制按钮 */
-      .music-control {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        background-color: rgba(255, 105, 180, 0.8);
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        z-index: 100;
-        transition: all 0.3s ease;
-      }
-
-      .music-control:hover {
-        transform: scale(1.1);
-      }
-
-      .music-control i {
-        font-size: 24px;
-        color: white;
-      }
-
-      .music-control.playing .play-icon {
-        display: none;
-      }
-
-      .music-control.playing .pause-icon {
-        display: block;
-      }
-
-      .music-control .play-icon {
-        display: block;
-      }
-
-      .music-control .pause-icon {
-        display: none;
-      }
-
-      .scroll-indicator {
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        animation: bounce 2s infinite;
-      }
-
-      @keyframes bounce {
-        0%,
-        20%,
-        50%,
-        80%,
-        100% {
-          transform: translateY(0) translateX(-50%);
-        }
-        40% {
-          transform: translateY(-20px) translateX(-50%);
-        }
-        60% {
-          transform: translateY(-10px) translateX(-50%);
-        }
-      }
-
-      /* 添加到现有样式部分 */
-
-      /* 移动端优化 */
-      @media (max-width: 768px) {
-        .text-5xl {
-          font-size: 2.5rem;
-        }
-
-        .text-4xl {
-          font-size: 2.2rem;
-        }
-
-        .text-xl {
-          font-size: 1.1rem;
-        }
-
-        section {
-          padding: 3rem 1rem;
-        }
-
-        .music-control {
-          bottom: 15px;
-          right: 15px;
-          width: 40px;
-          height: 40px;
-        }
-
-        .music-control i {
-          font-size: 18px;
-        }
-
-        #final-message p {
-          margin: 1rem 0;
-        }
-      }
-
-      /* 平板设备优化 */
-      @media (min-width: 769px) and (max-width: 1024px) {
-        section {
-          padding: 4rem 2rem;
-        }
-      }
-
-      /* 确保内容在不同设备上有合适的间距 */
-      .section-container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-    </style>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
+
+    <!-- 引入自定义样式文件 -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
   </head>
   <body
     class="bg-gradient-to-br from-pink-100 to-purple-200 min-h-screen font-chinese"
@@ -241,7 +32,7 @@
         <h1
           class="text-4xl md:text-6xl font-title text-white mb-4 animate__animated animate__heartBeat animate__infinite"
         >
-          正在准备你的生日惊喜...
+          正在准备你的生日模块...
         </h1>
         <div class="w-64 h-6 mx-auto bg-gray-200 rounded-full overflow-hidden">
           <div
@@ -261,11 +52,7 @@
 
     <!-- 背景音乐 -->
     <audio id="bg-music" loop>
-      <source
-        src="https://cdn.pixabay.com/audio/2023/01/06/audio_b0b6d30938.mp3"
-        type="audio/mp3"
-      />
-      <!-- 请替换为您喜欢的背景音乐URL -->
+      <source src="perfect.mp3" type="audio/mp3" />
     </audio>
 
     <!-- 主页面内容 -->
@@ -282,7 +69,7 @@
         <h1
           class="text-5xl md:text-7xl font-title text-pink-600 mb-6 animate__animated animate__fadeInDown"
         >
-          生日快乐！
+          生日快乐！我的宝贝
         </h1>
         <p
           class="heart text-8xl animate__animated animate__fadeInUp animate__delay-1s"
@@ -303,7 +90,7 @@
       >
         <div class="max-w-3xl mx-auto text-center">
           <h2 class="text-4xl font-title text-pink-600 mb-8">
-            亲爱的，祝你生日快乐
+            亲爱的小文，祝你生日快乐
           </h2>
           <div
             id="message"
@@ -330,106 +117,72 @@
         </div>
       </section>
 
-      <!-- 照片画廊 -->
+      <!-- 照片画廊 - 使用照片墙形式 -->
       <section
         id="gallery"
         class="min-h-screen py-20 px-4 bg-gradient-to-tr from-purple-100 to-pink-100 fade-in-section"
       >
         <div class="max-w-6xl mx-auto">
-          <h2 class="text-4xl font-title text-pink-600 mb-12 text-center">
-            美好时光
+          <h2 class="text-4xl font-title text-pink-600 mb-8 text-center">
+            年度照片墙
           </h2>
-          <div class="photo-grid">
-            <!-- 这里需要替换你的照片路径 -->
-            <div class="photo-item">
-              <div
-                class="bg-white p-3 rounded-lg shadow-md h-full transform transition duration-500 hover:scale-105 hover:shadow-lg"
+
+          <!-- 照片墙 -->
+          <div class="photo-wall-container">
+            <!-- 年度我最喜欢的照片 -->
+            <div class="mb-16">
+              <h3
+                class="text-2xl font-semibold text-pink-600 mb-6 flex items-center"
               >
-                <div class="overflow-hidden rounded-lg">
-                  <img
-                    src="https://via.placeholder.com/400x400"
-                    alt="美好回忆"
-                    class="w-full h-64 object-cover transition duration-700 hover:opacity-90"
-                    loading="lazy"
-                  />
-                </div>
-                <p class="mt-3 text-gray-700 text-center">我们的第一次约会</p>
-              </div>
+                <i class="fas fa-trophy mr-3 text-yellow-500"></i>
+                年度我最喜欢的照片
+              </h3>
+              <div
+                class="photo-wall grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+                id="favorite-photos"
+              ></div>
             </div>
-            <div class="photo-item">
-              <div
-                class="bg-white p-3 rounded-lg shadow-md h-full transform transition duration-500 hover:scale-105 hover:shadow-lg"
+
+            <!-- 年度最佳艺术照 -->
+            <div class="mb-16">
+              <h3
+                class="text-2xl font-semibold text-pink-600 mb-6 flex items-center"
               >
-                <div class="overflow-hidden rounded-lg">
-                  <img
-                    src="https://via.placeholder.com/400x400"
-                    alt="美好回忆"
-                    class="w-full h-64 object-cover transition duration-700 hover:opacity-90"
-                    loading="lazy"
-                  />
-                </div>
-                <p class="mt-3 text-gray-700 text-center">一起看的第一场电影</p>
-              </div>
+                <i class="fas fa-palette mr-3 text-blue-500"></i>
+                年度最佳艺术照
+              </h3>
+              <div
+                class="photo-wall grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+                id="artistic-photos"
+              ></div>
             </div>
-            <div class="photo-item">
-              <div
-                class="bg-white p-3 rounded-lg shadow-md h-full transform transition duration-500 hover:scale-105 hover:shadow-lg"
+
+            <!-- 年度最佳旅行照 -->
+            <div class="mb-16">
+              <h3
+                class="text-2xl font-semibold text-pink-600 mb-6 flex items-center"
               >
-                <div class="overflow-hidden rounded-lg">
-                  <img
-                    src="https://via.placeholder.com/400x400"
-                    alt="美好回忆"
-                    class="w-full h-64 object-cover transition duration-700 hover:opacity-90"
-                    loading="lazy"
-                  />
-                </div>
-                <p class="mt-3 text-gray-700 text-center">美好的旅行回忆</p>
-              </div>
+                <i class="fas fa-plane mr-3 text-green-500"></i>
+                年度最佳旅行照
+              </h3>
+              <div
+                class="photo-wall grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+                id="travel-photos"
+              ></div>
             </div>
-            <div class="photo-item">
-              <div
-                class="bg-white p-3 rounded-lg shadow-md h-full transform transition duration-500 hover:scale-105 hover:shadow-lg"
+
+            <!-- 年度最佳劳动照 -->
+            <div class="mb-16">
+              <h3
+                class="text-2xl font-semibold text-pink-600 mb-6 flex items-center"
               >
-                <div class="overflow-hidden rounded-lg">
-                  <img
-                    src="https://via.placeholder.com/400x400"
-                    alt="美好回忆"
-                    class="w-full h-64 object-cover transition duration-700 hover:opacity-90"
-                    loading="lazy"
-                  />
-                </div>
-                <p class="mt-3 text-gray-700 text-center">我们的纪念日</p>
-              </div>
-            </div>
-            <div class="photo-item">
+                <i class="fas fa-briefcase mr-3 text-orange-500"></i>
+                年度最佳劳动照
+              </h3>
               <div
-                class="bg-white p-3 rounded-lg shadow-md h-full transform transition duration-500 hover:scale-105 hover:shadow-lg"
-              >
-                <div class="overflow-hidden rounded-lg">
-                  <img
-                    src="https://via.placeholder.com/400x400"
-                    alt="美好回忆"
-                    class="w-full h-64 object-cover transition duration-700 hover:opacity-90"
-                    loading="lazy"
-                  />
-                </div>
-                <p class="mt-3 text-gray-700 text-center">一起做的美食</p>
-              </div>
-            </div>
-            <div class="photo-item">
-              <div
-                class="bg-white p-3 rounded-lg shadow-md h-full transform transition duration-500 hover:scale-105 hover:shadow-lg"
-              >
-                <div class="overflow-hidden rounded-lg">
-                  <img
-                    src="https://via.placeholder.com/400x400"
-                    alt="美好回忆"
-                    class="w-full h-64 object-cover transition duration-700 hover:opacity-90"
-                    loading="lazy"
-                  />
-                </div>
-                <p class="mt-3 text-gray-700 text-center">难忘的派对</p>
-              </div>
+                class="photo-wall grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+                id="work-photos"
+              ></div>
             </div>
           </div>
         </div>
@@ -441,270 +194,33 @@
         class="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-200 to-purple-300 fade-in-section"
       >
         <div class="text-center px-4 max-w-3xl">
-          <h2 class="text-4xl font-title text-pink-600 mb-8">
-            亲爱的，我有话对你说
-          </h2>
           <div
             id="final-message"
             class="text-xl leading-relaxed mb-10 text-gray-700"
           >
-            <p>这一年，感谢有你陪伴在我身边，让我的生活变得更加精彩。</p>
+            <p>亲爱的小文，今天是你的特别日子，愿这一天充满欢笑和惊喜。</p>
             <p class="my-4">
-              你的笑容是我最大的幸福，希望未来的日子里，我们能够一起创造更多美好的回忆。
+              我不能陪在你的身边与你度过这个生日，但是我会努力让你之后的每个生日都会拥有我在身边的陪伴。
             </p>
-            <p class="text-pink-600 font-bold">生日快乐，我最爱的人！</p>
-          </div>
-          <div class="mt-8 relative">
-            <div class="floating">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/1029/1029130.png"
-                alt="礼物"
-                class="w-32 h-32 mx-auto cursor-pointer"
-                id="gift-box"
-              />
-            </div>
+            <p class="my-4">
+              我知道爱情会经历热恋，也会步入平淡，但我坚信真正的爱情不是一时的热情，而是岁月中的长情陪伴。无论风雨，无论平淡，我都会一如既往地爱你、珍惜你。
+            </p>
+            <p class="my-4">
+              未来的路很长，但我已经做好了准备，与你携手同行。你的笑容是我最大的幸福，我愿用一生去守护。
+            </p>
+            <p class="text-pink-600 font-bold">
+              生日快乐，我的爱人。无论多远，无论多久，我都会永远爱你！
+            </p>
           </div>
         </div>
       </section>
     </main>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // 模拟加载进度
-        let progress = 0;
-        const progressBar = document.getElementById("progress-bar");
-        const loadingInterval = setInterval(() => {
-          progress += Math.random() * 15;
-          if (progress > 100) progress = 100;
-          progressBar.style.width = `${progress}%`;
-
-          if (progress === 100) {
-            clearInterval(loadingInterval);
-            setTimeout(() => {
-              document
-                .getElementById("loading-screen")
-                .classList.add("animate__animated", "animate__fadeOut");
-              setTimeout(() => {
-                document.getElementById("loading-screen").style.display =
-                  "none";
-                document
-                  .getElementById("main-content")
-                  .classList.remove("hidden");
-                startFireworks();
-                checkFadeInElements(); // 初始检查可见元素
-              }, 1000);
-            }, 500);
-          }
-        }, 200);
-
-        // 烟花效果
-        function startFireworks() {
-          const fireworksContainer = document.getElementById(
-            "fireworks-container"
-          );
-
-          function createFirework() {
-            const firework = document.createElement("div");
-            firework.classList.add("firework");
-
-            // 随机位置
-            const startX = Math.random() * window.innerWidth;
-            const startY = window.innerHeight;
-
-            firework.style.left = `${startX}px`;
-            firework.style.bottom = "0px";
-
-            // 随机颜色
-            const colors = [
-              "#FF69B4",
-              "#FF1493",
-              "#8A2BE2",
-              "#9400D3",
-              "#FF00FF",
-              "#BA55D3",
-            ];
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            firework.style.backgroundColor = color;
-            firework.style.boxShadow = `0 0 10px 5px ${color}`;
-
-            // 随机方向
-            const angle = Math.random() * Math.PI;
-            const distance = 100 + Math.random() * 200;
-            const dx = Math.cos(angle) * distance;
-            const dy = Math.sin(angle) * distance;
-
-            firework.style.setProperty("--dx", `${dx}px`);
-            firework.style.setProperty("--dy", `${-dy}px`);
-
-            fireworksContainer.appendChild(firework);
-
-            // 动画结束后移除
-            setTimeout(() => {
-              firework.remove();
-            }, 2000);
-          }
-
-          // 创建多个烟花
-          for (let i = 0; i < 50; i++) {
-            setTimeout(createFirework, Math.random() * 2000);
-          }
-        }
-
-        // 监听滚动事件，显示内容
-        window.addEventListener("scroll", () => {
-          checkFadeInElements();
-          checkPhotoItems();
-        });
-
-        // 检查哪些元素应该淡入
-        function checkFadeInElements() {
-          const fadeInSections = document.querySelectorAll(".fade-in-section");
-
-          fadeInSections.forEach((section) => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-
-            // 当元素进入视口时
-            if (sectionTop < windowHeight * 0.85) {
-              // 增加阈值，让元素更早开始淡入
-              section.classList.add("is-visible");
-              section.style.transition =
-                "opacity 1.2s ease-out, transform 1.2s ease-out"; // 增加过渡时间
-
-              // 如果是祝福语部分，逐行显示文字
-              if (
-                section.id === "wishes" &&
-                !section.dataset.messagesRevealed
-              ) {
-                revealMessages();
-                section.dataset.messagesRevealed = "true";
-              }
-            }
-          });
-        }
-
-        // 新增：检查并显示照片项
-        function checkPhotoItems() {
-          const photoItems = document.querySelectorAll(".photo-item");
-
-          photoItems.forEach((item, index) => {
-            const itemTop = item.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-
-            if (itemTop < windowHeight * 0.9) {
-              // 延迟显示，一个接一个出现
-              setTimeout(() => {
-                item.classList.add("visible");
-              }, index * 200); // 每张照片间隔200ms显示
-            }
-          });
-        }
-
-        // 初始检查
-        setTimeout(() => {
-          checkPhotoItems();
-        }, 500);
-
-        // 逐行显示祝福语
-        function revealMessages() {
-          const messages = document.querySelectorAll("#message p");
-          messages.forEach((msg, index) => {
-            setTimeout(() => {
-              msg.style.opacity = "1";
-            }, index * 1500);
-          });
-        }
-
-        // 礼物盒点击事件
-        document.getElementById("gift-box").addEventListener("click", () => {
-          Swal.fire({
-            title: "生日快乐！",
-            text: "这是我为你准备的特别礼物，希望你喜欢！请联系我领取你的实体礼物 ❤️",
-            imageUrl: "https://cdn-icons-png.flaticon.com/512/4213/4213958.png",
-            imageWidth: 200,
-            imageHeight: 200,
-            imageAlt: "生日礼物",
-            confirmButtonText: "谢谢你！",
-            confirmButtonColor: "#FF1493",
-            showConfetti: true,
-            background: "rgba(255, 192, 203, 0.2)",
-          }).then(() => {
-            // 心形烟花效果
-            createHeartFireworks();
-          });
-        });
-
-        // 心形烟花
-        function createHeartFireworks() {
-          const container = document.createElement("div");
-          container.style.position = "fixed";
-          container.style.top = "0";
-          container.style.left = "0";
-          container.style.width = "100%";
-          container.style.height = "100%";
-          container.style.pointerEvents = "none";
-          container.style.zIndex = "999";
-          document.body.appendChild(container);
-
-          for (let i = 0; i < 40; i++) {
-            setTimeout(() => {
-              const heart = document.createElement("div");
-              heart.innerHTML = "❤️";
-              heart.style.position = "absolute";
-              heart.style.fontSize = `${20 + Math.random() * 20}px`;
-              heart.style.left = `${Math.random() * 100}%`;
-              heart.style.top = "100%";
-              heart.style.opacity = "1";
-              heart.style.transition = "top 3s ease-out, opacity 3s ease-out";
-              container.appendChild(heart);
-
-              setTimeout(() => {
-                heart.style.top = `${Math.random() * 70}%`;
-                heart.style.opacity = "0";
-
-                setTimeout(() => {
-                  heart.remove();
-                }, 3000);
-              }, 100);
-            }, i * 200);
-          }
-
-          setTimeout(() => {
-            container.remove();
-          }, 10000);
-        }
-
-        // 音乐控制
-        const musicControl = document.getElementById("music-control");
-        const bgMusic = document.getElementById("bg-music");
-
-        musicControl.addEventListener("click", () => {
-          if (bgMusic.paused) {
-            bgMusic.play();
-            musicControl.classList.add("playing");
-          } else {
-            bgMusic.pause();
-            musicControl.classList.remove("playing");
-          }
-        });
-
-        // 用户第一次交互时尝试播放音乐
-        document.addEventListener(
-          "click",
-          function initAudio() {
-            bgMusic
-              .play()
-              .then(() => {
-                musicControl.classList.add("playing");
-              })
-              .catch((err) => {
-                console.log("音乐自动播放失败：", err);
-              });
-            document.removeEventListener("click", initAudio);
-          },
-          { once: true }
-        );
-      });
-    </script>
+    <!-- 引入JavaScript文件 -->
+    <script src="js/loading.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/photo-viewer.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigation.js"></script>
   </body>
 </html>

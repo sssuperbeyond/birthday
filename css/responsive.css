@@ -1,0 +1,55 @@
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .text-5xl {
+      font-size: 2.5rem;
+    }
+  
+    .text-4xl {
+      font-size: 2.2rem;
+    }
+  
+    .text-xl {
+      font-size: 1.1rem;
+    }
+  
+    section {
+      padding: 3rem 1rem;
+    }
+  
+    .music-control {
+      bottom: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+    }
+  
+    .music-control i {
+      font-size: 18px;
+    }
+  
+    #final-message p {
+      margin: 1rem 0;
+    }
+  }
+  
+  /* 平板设备优化 */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    section {
+      padding: 4rem 2rem;
+    }
+  }
+  
+  /* 照片网格响应式调整 */
+  @media (max-width: 640px) {
+    .photo-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .category-container {
+      margin-bottom: 2rem;
+    }
+  
+    .photo-category {
+      margin-top: 2rem;
+    }
+  }

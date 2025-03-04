@@ -1,0 +1,83 @@
+/* 心跳动画 */
+.heart {
+    animation: heartbeat 1.5s infinite;
+  }
+  
+  @keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  
+  /* 漂浮动画 */
+  .floating {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  /* 烟花动画 */
+  .firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8);
+    animation: firework-animation 2s ease-out;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes firework-animation {
+    0% {
+      transform: translate(0, 0);
+      opacity: 1;
+      width: 5px;
+      height: 5px;
+    }
+    50% { opacity: 1; }
+    100% {
+      transform: translate(var(--dx), var(--dy));
+      opacity: 0;
+      width: 0px;
+      height: 0px;
+    }
+  }
+  
+  /* 滚动指示器动画 */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-20px) translateX(-50%); }
+    60% { transform: translateY(-10px) translateX(-50%); }
+  }
+  
+  /* 奖杯图标效果 */
+  .award-icon {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: gold;
+    margin-right: 0.5rem;
+    animation: shine 2s infinite;
+  }
+  
+  @keyframes shine {
+    0% { opacity: 0.8; }
+    50% { 
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% { opacity: 0.8; }
+  }

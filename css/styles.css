@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap");
+
+.font-chinese {
+  font-family: "Noto Serif SC", serif;
+}
+
+.font-title {
+  font-family: "Ma Shan Zheng", cursive;
+}
+
+/* 音乐控制按钮 */
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 105, 180, 0.8);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.music-control:hover {
+  transform: scale(1.1);
+}
+
+.music-control i {
+  font-size: 24px;
+  color: white;
+}
+
+.music-control.playing .play-icon {
+  display: none;
+}
+
+.music-control.playing .pause-icon {
+  display: block;
+}
+
+.music-control .play-icon {
+  display: block;
+}
+
+.music-control .pause-icon {
+  display: none;
+}
+
+/* 类别布局 */
+.category-container {
+  margin-bottom: 3rem;
+}
+
+/* 照片网格布局 */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 照片分类标题 */
+.photo-category {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.photo-category.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-category-title {
+  display: inline-block;
+  background: linear-gradient(to right, #ff1493, #9370db);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 0.25rem 1rem;
+  border-bottom: 2px solid #ff1493;
+  position: relative;
+}
+
+/* 确保内容在不同设备上有合适的间距 */
+.section-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 照片浮现效果 */
+.photo-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.photo-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.photo-item:hover img {
+  transform: scale(1.1);
+}
+
+/* 新增：淡入效果类 */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* 照片浏览器样式 */
+.photo-navigation {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.photo-nav-button {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.photo-nav-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* 页面过渡动画 */
+section.hidden {
+  display: none;
+}
+
+/* 揭秘按钮样式 */
+.reveal-photos-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.reveal-photos-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+}
+
+.reveal-photos-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.6)
+  );
+  transition: left 0.7s ease;
+}
+
+.reveal-photos-btn:hover:before {
+  left: 100%;
+}
+
+/* 照片项目样式优化 */
+.photo-content {
+  transition: all 0.5s ease;
+}
+
+/* 分类展示按钮样式 */
+#view-categories-btn {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 105, 180, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 105, 180, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 105, 180, 0);
+  }
+}
+
+/* 照片墙样式 */
+.photo-wall {
+  transition: all 0.5s ease;
+}
+
+/* 照片墙动画 */
+.photo-wall .photo-item {
+  animation: fadeInUp 0.6s both;
+  animation-delay: calc(0.1s * var(--animation-order, 0));
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 照片模态框样式 */
+.photo-modal-container {
+  z-index: 1050;
+}
