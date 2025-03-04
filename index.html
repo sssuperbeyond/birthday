@@ -1,1 +1,219 @@
-<p>123</p>
+/birthday/index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>生日祝福</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Microsoft YaHei", sans-serif;
+        background-color: #f9f4f5;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        text-align: center;
+        padding: 30px 0;
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        border-radius: 10px;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: #fff;
+        font-weight: 300;
+      }
+
+      .info-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+      }
+
+      h2 {
+        color: #ff6b6b;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #f9f4f5;
+        padding-bottom: 10px;
+      }
+
+      .countdown {
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 30px 0;
+        color: #ff6b6b;
+      }
+
+      .timer {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .time-block {
+        background-color: #ff6b6b;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        min-width: 80px;
+        text-align: center;
+      }
+
+      .time-label {
+        font-size: 0.8rem;
+        margin-top: 5px;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .gallery img {
+        width: 100%;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .gallery img:hover {
+        transform: scale(1.05);
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px 0;
+        color: #888;
+        font-size: 0.9rem;
+      }
+
+      .heart {
+        color: #ff6b6b;
+        animation: pulse 1s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .wishes {
+        list-style-type: none;
+        margin-top: 15px;
+      }
+
+      .wishes li {
+        padding: 10px;
+        border-bottom: 1px dashed #f0e4e4;
+      }
+
+      .wishes li:last-child {
+        border-bottom: none;
+      }
+
+      @media (max-width: 768px) {
+        .timer {
+          flex-wrap: wrap;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>生日快乐！</h1>
+        <p class="subtitle">温暖祝福，美好时光</p>
+      </header>
+
+      <div class="info-card">
+        <h2>庆祝活动</h2>
+        <p>亲爱的朋友，我们诚挚地邀请您参加即将到来的生日派对！</p>
+        <p><strong>时间：</strong> 2025年3月15日 下午 6:00</p>
+        <p><strong>地点：</strong> 阳光花园餐厅 (城市中心广场12号)</p>
+        <p><strong>主题：</strong> 星空奇遇</p>
+
+        <div class="countdown">
+          <h3>倒计时</h3>
+          <div class="timer" id="countdown-timer">
+            <div class="time-block">
+              <span id="days">00</span>
+              <div class="time-label">天</div>
+            </div>
+            <div class="time-block">
+              <span id="hours">00</span>
+              <div class="time-label">时</div>
+            </div>
+            <div class="time-block">
+              <span id="minutes">00</span>
+              <div class="time-label">分</div>
+            </div>
+            <div class="time-block">
+              <span id="seconds">00</span>
+              <div class="time-label">秒</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2>活动安排</h2>
+        <ul class="wishes">
+          <li><strong>18:00 - 18:30</strong> 宾客到达与欢迎</li>
+          <li><strong>18:30 - 19:30</strong> 晚餐享用</li>
+          <li><strong>19:30 - 20:00</strong> 生日蛋糕与祝福</li>
+          <li><strong>20:00 - 21:30</strong> 互动游戏与音乐</li>
+          <li><strong>21:30 - 22:00</strong> 礼物交换与合影留念</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h2>温馨提示</h2>
+        <p>1. 请提前确认是否参加，便于我们安排座位</p>
+        <p>2. 场</p>
+      </div>
+    </div>
+  </body>
+</html>
